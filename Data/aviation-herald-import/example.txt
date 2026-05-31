@@ -1,0 +1,6 @@
+# Format:
+# yyyy-mm-dd | title | url | summary
+#
+# Example:
+# 2026-05-30 | Incident: Example B738 near Kyiv on May 30th 2026, engine shut down | https://avherald.com/h?article=example | Incident: Example B738 near Kyiv on May 30th 2026, engine shut down
+# 2026-05-31 | Incident: Example B39M at Warsaw on May 31st 2026, rejected takeoff | https://avherald.com/h?article=example2 | Incident: Example B39M at Warsaw on May 31st 2026, rejected takeoff
