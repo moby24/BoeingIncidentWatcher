@@ -13,6 +13,8 @@ internal sealed class Settings
     public string AviationHeraldGoogleQuery { get; private set; } = string.Empty;
     public bool EnableAviationHeraldImport { get; private set; }
     public string AviationHeraldImportPath { get; private set; } = string.Empty;
+    public bool EnableAviationSafetyNetwork { get; private set; }
+    public string AviationSafetyNetworkYearUrl { get; private set; } = string.Empty;
     public string StateFile { get; private set; } = string.Empty;
 
     public static Settings Load(string path)
@@ -38,6 +40,8 @@ internal sealed class Settings
             AviationHeraldGoogleQuery = GetOrDefault(pairs, "AviationHeraldGoogleQuery", "site:avherald.com (Boeing OR B738 OR B39M OR B789 OR B788 OR B77W OR B763 OR B752) (incident OR accident OR crash OR emergency OR runway OR engine)"),
             EnableAviationHeraldImport = ParseBool(pairs, "EnableAviationHeraldImport", false),
             AviationHeraldImportPath = GetOrDefault(pairs, "AviationHeraldImportPath", "Data/aviation-herald-import"),
+            EnableAviationSafetyNetwork = ParseBool(pairs, "EnableAviationSafetyNetwork", true),
+            AviationSafetyNetworkYearUrl = GetOrDefault(pairs, "AviationSafetyNetworkYearUrl", "https://aviation-safety.net/asndb/year/2026"),
             StateFile = GetOrDefault(pairs, "StateFile", "Data/news.tsv")
         };
     }
