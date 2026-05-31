@@ -1,0 +1,7 @@
+settings.ini
+Data/sent-links.txt
+Data/news.tsv
+obj/
+bin/
+.build/
+.dotnet-home/
