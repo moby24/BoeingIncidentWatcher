@@ -41,6 +41,11 @@ internal static class Program
             sources.Add(new AviationHeraldImportSource(settings.AviationHeraldImportPath));
         }
 
+        if (settings.EnableAviationSafetyNetwork)
+        {
+            sources.Add(new AviationSafetyNetworkYearSource(settings.AviationSafetyNetworkYearUrl));
+        }
+
         var pollingService = new NewsPollingService(settings, sources, incidentFilter, newsStore);
         var dashboard = new DashboardServer(settings.DashboardUrl, newsStore, settings);
 
