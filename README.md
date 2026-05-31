@@ -26,6 +26,8 @@ EnableAviationHeraldGoogleNews=true
 AviationHeraldGoogleQuery=site:avherald.com (Boeing OR B738 OR B39M OR B789 OR B788 OR B77W OR B763 OR B752) (incident OR accident OR crash OR emergency OR runway OR engine)
 EnableAviationHeraldImport=false
 AviationHeraldImportPath=Data/aviation-herald-import
+EnableAviationSafetyNetwork=true
+AviationSafetyNetworkYearUrl=https://aviation-safety.net/asndb/year/2026
 StateFile=Data/news.tsv
 ```
 
@@ -71,6 +73,7 @@ The app is split into a source/filter/store/dashboard pipeline:
 - `Sources/INewsSource.cs`: common interface for news providers
 - `Sources/GoogleNewsRssSource.cs`: Google News RSS provider
 - `Sources/AviationHeraldImportSource.cs`: local Aviation Herald import provider
+- `Sources/AviationSafetyNetworkYearSource.cs`: Aviation Safety Network yearly database provider
 - `Filtering/IncidentFilter.cs`: incident and identifier filter
 - `Storage/TsvNewsStore.cs`: local persisted history
 - `Dashboard/DashboardServer.cs`: local HTTP dashboard and JSON API
@@ -88,6 +91,17 @@ AviationHeraldGoogleQuery=site:avherald.com (Boeing OR B738 OR B39M OR B789 OR B
 ```
 
 This checks Google News for indexed Aviation Herald pages every polling cycle. It does not directly scrape `avherald.com`.
+
+## Aviation Safety Network
+
+ASN yearly database polling is enabled with:
+
+```ini
+EnableAviationSafetyNetwork=true
+AviationSafetyNetworkYearUrl=https://aviation-safety.net/asndb/year/2026
+```
+
+The source reads only the configured yearly page and parses the visible table rows into dashboard items. It does not crawl ASN detail pages.
 
 ## Aviation Herald Import
 
